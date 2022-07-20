@@ -11,14 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class CommonRecyclerViewAdapter<T,V:ViewDataBinding>(val context: Context,@LayoutRes val layoutId:Int): RecyclerView.Adapter<CommonRecyclerViewAdapter.BaseViewHolder<V>>() {
  
     private val itemList: MutableList<T> = mutableListOf()
-    var loadingState = false
 
-
-    override fun getItemCount(): Int {
-        return if (loadingState && itemList.size == 0) {
-            1
-        } else itemList.size
-    }
+    override fun getItemCount(): Int=itemList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)=
         BaseViewHolder<V>(

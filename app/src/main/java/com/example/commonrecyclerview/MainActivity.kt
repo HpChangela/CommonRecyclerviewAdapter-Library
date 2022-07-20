@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 itemList: MutableList<Product>
             ) {
-
                 itemView.tvText.text = itemList[position].name
             }
         }
