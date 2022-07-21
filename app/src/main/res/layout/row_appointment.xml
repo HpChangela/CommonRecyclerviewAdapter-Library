@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="2dp">
 
         <TextView
             android:id="@+id/tvText"
@@ -18,6 +19,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/black"
+            android:textSize="14sp"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

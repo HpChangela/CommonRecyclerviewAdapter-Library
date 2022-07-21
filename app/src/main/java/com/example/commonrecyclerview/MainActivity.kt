@@ -2,6 +2,7 @@ package com.example.commonrecyclerview
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.common_recyclerview_adapter.CommonRecyclerViewAdapter
 import com.example.commonrecyclerview.databinding.ActivityMainBinding
 import com.example.commonrecyclerview.databinding.RowAppointmentBinding
@@ -9,16 +10,16 @@ import com.example.commonrecyclerview.model.Product
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var adapter: CommonRecyclerViewAdapter<Product, RowAppointmentBinding>
+    lateinit var commonAdapter: CommonRecyclerViewAdapter<Product, RowAppointmentBinding>
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
 
-        adapter = object : CommonRecyclerViewAdapter<Product, RowAppointmentBinding>(
+        commonAdapter = object : CommonRecyclerViewAdapter<Product, RowAppointmentBinding>(
             context = this,
             layoutId = R.layout.row_appointment
         ) {
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.rvMain.apply {
-            this.adapter = adapter
+            this.adapter = commonAdapter
         }
 
         val list = mutableListOf<Product>()
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         list.add(Product(id = "2", "Dell Laptop"))
         list.add(Product(id = "3", "Apple Laptop"))
 
-        adapter.addData(list)
+        commonAdapter.addData(list)
     }
 
 }
